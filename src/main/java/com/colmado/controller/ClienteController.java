@@ -6,32 +6,41 @@ import java.util.Scanner;
 
 public class ClienteController {
 
-    public Cliente crearCliente(){
+    public Cliente registrarCliente() {
 
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Nombre del cliente: ");
-        String nombre = sc.nextLine();
-
-        System.out.println("Apellido del cliente: ");
-        String apellido = sc.nextLine();
-
-        System.out.println("DNI del cliente: ");
-        String dni = sc.nextLine();
-
-
-        System.out.println("Edad del cliente: ");
-        int edad = sc.nextInt();
-
         Cliente cliente = new Cliente();
-        cliente.setNombre(nombre);
-        cliente.setApellido(apellido);
-        cliente.setEdad(edad);
-        cliente.setDni(dni);
+
+        System.out.println("***Registro de cliente***");
+
+        System.out.println("Nombre: ");
+        cliente.setNombre(sc.nextLine());
+        System.out.println("Apellido: ");
+        cliente.setApellido(sc.nextLine());
+        System.out.println("Documento de identidad: ");
+        cliente.setDni(sc.nextLine());
+        System.out.println("Telefono: ");
+        cliente.setTelefono(sc.nextLine());
+        System.out.println("Edad: ");
+        cliente.setEdad(sc.nextInt());
 
         return cliente;
     }
-    public void darBienvenida(String nombre, String apellido){
-        System.out.println("Bienvenido "+nombre+" "+apellido+".");
+
+    public void eliminarCliente(Cliente cliente) {
+        //Aqui estaria el metodo que elimina clientes.
+    }
+
+    public String darBienvenida(String nombre, String apellido, int edad) {
+        String saludo = "Bienvenido " + nombre + " " + apellido + ","+" tienes "+edad+" años.";
+
+    return saludo;}
+
+    public boolean isClienteMature(int edad) {
+
+        if (edad >= 18) {
+            return true;
+        }
+        return false;
     }
 }
